@@ -1,8 +1,6 @@
 pipeline {
     agent any
-    tools {
-        maven "Maven 3.9.0"
-    }
+   
     stages {
         stage("clone code"){
             steps{
@@ -10,6 +8,9 @@ pipeline {
             }
         }
         stage("build code"){
+             tools {
+        maven "Maven 3.9.0"
+    }
             steps{
               sh "mvn clean install"
             }
